@@ -17,7 +17,9 @@ app.use(cors({
     origin: 'http://localhost:5173',
 }));
 
-mongoose.connect('mongodb://localhost:27017/new', {
+const MONGO_URL= "mongodb://localhost:27017/new" || process.env.MONGO_URL;
+
+mongoose.connect(MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
